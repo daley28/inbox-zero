@@ -6,6 +6,8 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
     DATABASE_URL: z.string().url(),
+    NEXTAUTH_SECRET: z.string().min(1),
+    NEXTAUTH_URL: z.string().optional(),
     AUTH_SECRET: z.string().min(1),
     AUTH_URL: z.string().optional(),
     AUTH_TRUST_HOST: z.coerce.boolean().optional().default(true),
