@@ -13,7 +13,9 @@ export const env = createEnv({
     AUTH_TRUST_HOST: z.coerce.boolean().optional().default(true),
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
-    ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING: z.coerce.boolean().optional().default(false),
+    ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING: z
+      .enum(["true", "false"])
+      .default("false"),
     GOOGLE_ENCRYPT_SECRET: z.string(),
     GOOGLE_ENCRYPT_SALT: z.string(),
     DEFAULT_LLM_PROVIDER: z
