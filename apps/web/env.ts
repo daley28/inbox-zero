@@ -6,10 +6,13 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
     DATABASE_URL: z.string().url(),
-    NEXTAUTH_SECRET: z.string().min(1),
-    NEXTAUTH_URL: z.string().optional(),
+    AUTH_SECRET: z.string().min(1),
+    AUTH_URL: z.string().optional(),
+    AUTH_TRUST_HOST: z.coerce.boolean().optional().default(true),
+    ADMINS: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
+    ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING: z.coerce.boolean().optional().default(false),
     GOOGLE_ENCRYPT_SECRET: z.string(),
     GOOGLE_ENCRYPT_SALT: z.string(),
     DEFAULT_LLM_PROVIDER: z

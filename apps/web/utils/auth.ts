@@ -28,6 +28,8 @@ export const getAuthOptions: (options?: {
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking:
+        env.ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING,
       authorization: {
         url: "https://accounts.google.com/o/oauth2/v2/auth",
         params: {
